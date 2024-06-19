@@ -23,6 +23,18 @@ heart-disease-prediction/
 ├── models/                       # Trained models and model summaries
 │   ├── ModelForTesting.pkl       # Trained model
 │   ├── standardScalar.pkl        # Scaled Dataset
+|
+├── templates/                    # HTML pages
+│   ├── about.html                # About Page
+│   ├── contact.html              # Contact Page
+│   ├── index.html                # Trained model
+│   ├── output.html               # Scaled Dataset
+│   ├── predict.html              # Trained model
+│   ├── thankyou.html             # Thank You Page
+│
+├── static/                       # Photos of the Website
+│
+├── app.py/                       # Backend Flask
 │
 ├── requirements.txt              # Required dependencies
 │
