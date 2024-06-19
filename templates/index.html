@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya-BHARAT</title>
+    <style>
+        body {
+            background-image: url('static/heart1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 2px solid #fff;
+            overflow: hidden;
+            padding: 20px 10px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 14px 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .website-name {
+            color: #fff;
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30vh 0 20px;
+            font-size: 36px;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 2s ease-out;
+            margin: -5vh auto; /* Adjust the vertical margin to move the content more to the top */
+        }
+
+        main p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .cta-button:hover {
+            background-color: #0ee619;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-top: 2px solid #fff;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            text-align: center;
+            color: #fff;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .chat-icon img {
+            height: 50px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .chat-icon img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Website Logo">
+            </div>
+            <div class="website-name">Arogya-BHARAT</div>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('predict') }}">Predict</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <h1>Empower Your Health with Heart Disease Prediction</h1>
+    <main>
+        <p>Take control of your well-being. Our advanced prediction model helps you assess the risk of heart disease based on various factors. Input your details and receive personalized insights.</p>
+        <a class="cta-button" href="{{ url_for('predict') }}">Get Started</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Arogya-BHARAT. All rights reserved!!</p>
+    </footer>
+
+    <!-- Chat Icon Container -->
+    <div class="chat-container">
+        <div class="chat-icon">
+            <img src="{{ url_for('static', filename='chat.jpg') }}" alt="Chat Support">
+        </div>
+        <a href="{{ url_for('contact') }}">Any help?</a>
+        <!-- <div class="chat-text">Any Help?</div> -->
+    </div>
+</body>
+</html>

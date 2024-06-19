@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya-BHARAT</title>
+    <style>
+        body {
+            background-image: url('static/doctor.jpeg'); 
+            background-size: cover;
+            background-position: center 50%;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 2px solid #fff;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 14px 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .logo {
+            float: left;
+            margin-right: 10px;
+        }
+
+        h1 {
+            margin-top: 10px; /* Add margin-top to create space between logo and title */
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 39px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-top: 2px solid #fff;
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .chat-icon img {
+            height: 50px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .chat-icon img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Website Logo">
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('about')}}">About</a>
+            <a href="{{ url_for('contact')}}">Contact</a>
+        </nav>
+        <h1>Arogya-BHARAT</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('predict')}}" method="post">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        
+            <label for="cp">Chest Pain Type:</label>
+            <select id="cp" name="cp" required>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-anginal Pain</option>
+                <option value="3">Asymptomatic</option>
+            </select>
+        
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" id="trestbps" name="trestbps" required>
+        
+            <label for="cholesterol">Cholesterol:</label>
+            <input type="number" id="cholesterol" name="cholesterol" required>
+        
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl:</label>
+            <select id="fbs" name="fbs" required>
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </select>
+        
+            <label for="restecg">Resting Electrocardiographic Results:</label>
+            <select id="restecg" name="restecg" required>
+                <option value="0">Normal</option>
+                <option value="1">Having ST-T Wave Abnormality</option>
+                <option value="2">Showing Probable or Definite Left Ventricular Hypertrophy</option>
+            </select>
+        
+            <label for="thalach">Maximum Heart Rate Achieved:</label>
+            <input type="number" id="thalach" name="thalach" required>
+        
+            <label for="exang">Exercise Induced Angina:</label>
+            <select id="exang" name="exang" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest:</label>
+            <input type="number" step="0.1" id="oldpeak" name="oldpeak" required>
+        
+            <label for="slope">Slope of the Peak Exercise ST Segment:</label>
+            <select id="slope" name="slope" required>
+                <option value="0">Upsloping</option>
+                <option value="1">Flat</option>
+                <option value="2">Downsloping</option>
+            </select>
+        
+            <label for="ca">Number of Major Vessels Colored by Fluoroscopy:</label>
+            <select id="ca" name="ca" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        
+            <label for="thal">Thalassemia:</label>
+            <select id="thal" name="thal" required>
+                <option value="0">Normal</option>
+                <option value="1">Fixed Defect</option>
+                <option value="2">Reversible Defect</option>
+            </select>
+        
+            <button type="submit">Predict</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Arogya-BHARAT. All rights reserved!!</p>
+    </footer>
+
+    <!-- Chat Icon Container -->
+    <div class="chat-container">
+        <div class="chat-icon">
+            <img src="{{ url_for('static', filename='chat.jpg') }}" alt="Chat Support">
+        </div>
+        <a href="{{ url_for('contact') }}">Any help?</a>
+    </div>
+</body>
+</html>

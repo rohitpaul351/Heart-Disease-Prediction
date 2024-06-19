@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+        header, footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 20px 0;
+        }
+        header img {
+            height: 60px;
+            margin: 10px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+        }
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            color: #333;
+            flex-grow: 1;
+            animation: fadeIn 1s forwards;
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+        .result, .recommendations, .additional-info, .visualization {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        .result h2, .recommendations h2, .additional-info h2, .visualization h2 {
+            text-align: left;
+            font-size: 1.5em;
+            color: #444;
+        }
+        .result p, .additional-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .recommendations ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .recommendations ul li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Arogya-BHARAT Logo">
+        <h1>Arogya-BHARAT</h1>
+    </header>
+    <div class="container">
+        <div class="result">
+            <h2>Prediction Result: {{ result }}</h2>
+        </div>
+        <div class="recommendations">
+            <h2>Recommendations:</h2>
+            <ul>
+                <li>Consult a Cardiologist</li>
+                <li>Implement Lifestyle Changes</li>
+                <li>Follow Medication as Prescribed</li>
+                <li>Schedule Regular Check-ups</li>
+            </ul>
+        </div>
+        <div class="additional-info">
+            <h2>Additional Information:</h2>
+            <p>Understanding Your Risk: The risk percentage is based on various factors including age, cholesterol levels, blood pressure, and other heart-related metrics.</p>
+            <p>Next Steps: Click <a href="https://www.icliniq.com/en_IN/">here</a> to schedule an appointment with a cardiologist. Click <a href="https://www.heart.org/en/news/2024/01/24/to-curb-high-rates-of-heart-disease-and-stroke-experts-urge-prevention-and-innovation">here</a> for resources on heart-healthy living.</p>
+        </div>
+        <div class="visualization">
+            <h2>Visualization:</h2>
+            <img src="{{ url_for('static', filename='chart.png') }}" alt="Heart Disease Risk Chart" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Arogya-BHARAT. All rights reserved.</p>
+    </footer>
+</body>
+</html>

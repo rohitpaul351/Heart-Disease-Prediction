@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Arogya-BHARAT</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+            max-width: 600px;
+            animation: fadeIn 2s ease-in-out;
+            margin: 0 20px;
+        }
+
+        .thank-you-message h1 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .thank-you-message p {
+            font-size: 1.5em;
+            color: #ddd;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out 1s;
+        }
+
+        .animation-box {
+            width: 50px;
+            height: 50px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .thank-you-message h1 {
+                font-size: 4em;
+            }
+
+            .thank-you-message p {
+                font-size: 2em;
+            }
+
+            .animation-box {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you-message">
+            <h1>Thank You!</h1>
+            <p>We will contact you shortly.</p>
+            <div class="animation-box"></div>
+        </div>
+    </div>
+</body>
+</html>
