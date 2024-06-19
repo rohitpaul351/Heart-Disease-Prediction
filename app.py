@@ -49,7 +49,7 @@ def contact():
             "E-mail": email,
             "message": message
         }
-        uri = "mongodb+srv://technorohitpaul:technorohitpaul@cluster0.a3emict.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+        uri = "mongodb+srv://technorohitpaul"
         # Create a new client and connect to the server
         client = MongoClient(uri, server_api=ServerApi('1'), tls=True, tlsAllowInvalidCertificates=True)
         db = client['ArogyaBHARAT']
